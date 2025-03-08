@@ -1,0 +1,302 @@
+        ::-webkit-scrollbar {
+            width: 12px; 
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: #2c2c2c;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #484848;
+            border-radius: 10px;
+            border: 3px solid #2c2c2c;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5c5c5c; 
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: #2c2c2c;
+        }
+
+            /* Dark Theme Colors */
+        :root {
+            --bg-dark: #121212;
+            --bg-medium: #1e1e1e;
+            --bg-light: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent-color: #8A2BE2; /* Purple accent */
+            --danger-color: #ff3860;
+            --success-color: #23d160;
+            --info-color: #3e8ed0;
+            --warning-color: #ffdd57;
+            --border-color: #444444;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+        }
+        
+        .title, .subtitle, .label {
+            color: var(--text-primary);
+        }
+        
+        .box, .notification, .footer {
+            background-color: var(--bg-medium);
+            color: var(--text-secondary);
+        }
+        
+        .app-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .canvas-container {
+            position: relative;
+            margin: 20px 0;
+            border: 2px dashed var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+        
+        .canvas-container.dragover {
+            border-color: var(--accent-color);
+            background-color: rgba(138, 43, 226, 0.1);
+        }
+        
+        #imageCanvas, #maskCanvas, #resultCanvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        #maskCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .is-hidden {
+            display: none !important;
+        }
+        
+        /* Fixed color-picker for mobile */
+        .color-picker {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--bg-light);
+        }
+        
+        .color-picker .color-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .color-picker .slider-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tools {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* Fixed drawing-tools for mobile */
+        .drawing-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--bg-light);
+        }
+        
+        .drawing-tools .field.is-grouped {
+            flex-wrap: wrap;
+        }
+        
+        .preview {
+            margin-top: 20px;
+        }
+        
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            background-color: var(--bg-dark) !important;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .brush-size-preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--danger-color);
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        
+        .placeholder-text {
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 20px;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .canvas-loaded {
+            min-height: auto;
+        }
+        
+        /* Debug info */
+        .debug-info {
+            font-family: monospace;
+            font-size: 12px;
+            padding: 10px;
+            background-color: #000000;
+            border: 1px solid var(--border-color);
+            color: #00ff00;
+            margin-top: 10px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        /* Custom file upload styling */
+        .file-cta {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+        
+        .file-name {
+            background-color: var(--bg-light);
+            color: var(--text-secondary);
+            border-color: var(--border-color);
+        }
+        
+        /* Button styling */
+        .button {
+            border: 1px solid var(--border-color);
+        }
+        
+        .button.is-primary {
+            background-color: var(--accent-color);
+        }
+        
+        .button.is-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .button.is-info {
+            background-color: var(--info-color);
+        }
+        
+        .button.is-warning {
+            background-color: var(--warning-color);
+            color: #000;
+        }
+        
+        /* Drag & Drop icon styling */
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+        
+        input[type="range"].slider {
+            background-color: var(--bg-light);
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        input[type="range"].slider.is-danger::-webkit-slider-runnable-track {
+            background: var(--danger-color);
+        }
+        
+        input[type="range"].slider.is-success::-webkit-slider-runnable-track {
+            background: var(--success-color);
+        }
+        
+        /* Tag styling */
+        .tag {
+            background-color: var(--bg-light);
+            color: var(--text-primary);
+        }
+        
+        .tag.is-success {
+            background-color: var(--success-color);
+            color: #000;
+        }
+        
+        /* Notification styling */
+        .notification.is-info {
+            background-color: rgba(62, 142, 208, 0.2);
+            color: var(--text-primary);
+            border: 1px solid var(--info-color);
+        }
+        
+        /* Add space for action buttons on mobile */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        /* Add animated pulse for drag area */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .upload-icon {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        /* Media queries for responsive design */
+        @media screen and (max-width: 768px) {
+            .app-container {
+            padding: 10px;
+            }
+            
+            .notification ol {
+            padding-left: 20px;
+            }
+            
+            .button {
+            height: auto;
+            white-space: normal;
+            padding: 8px 10px;
+            }
+        }

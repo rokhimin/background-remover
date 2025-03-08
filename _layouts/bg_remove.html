@@ -1,0 +1,103 @@
+---
+layout: default
+---
+<section class="section">
+    <div class="app-container">
+      <div class="has-text-centered">
+        <h1 class="title is-2" style="color: var(--accent-color);">Background Remover</h1>
+        <p class="subtitle">Easily remove image backgrounds with mask protection</p>
+      </div>
+      
+      <div class="canvas-container" id="editContainer">
+        <div class="placeholder-text" id="placeholderText">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <span>Drag & drop image here or click "Choose Image" above</span>
+          <label class="file-label">
+            <input class="file-input" type="file" id="imageUpload" accept="image/*">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose Image
+              </span>
+            </span>
+          </label>
+        </div>
+        <canvas id="imageCanvas" class="is-hidden"></canvas>
+        <canvas id="maskCanvas" class="is-hidden"></canvas>
+        <div class="field"></div>
+      </div>
+      
+      <div class="box">
+        <div class="file has-name is-centered is-fullwidth">
+          <span class="file-name" id="fileName">
+            No file selected
+          </span>
+        </div>
+        
+        <div class="tools is-hidden" id="toolsContainer">
+          <div class="drawing-tools">
+            <h4 class="title is-5">Mask Protection</h4>
+            <p class="help">Draw on areas you want to protect from removal</p>
+            
+            <div class="field is-grouped">
+              <div class="control">
+                <button id="enableDraw" class="button is-danger">Enable Drawing</button>
+                <button id="disableDraw" class="button is-light is-hidden">Disable Drawing</button>
+              </div>
+              <div class="control">
+                <button id="clearMask" class="button">Clear Mask</button>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Brush Size: <span id="brushSizeValue">10</span>px</label>
+              <div class="control">
+                <input type="range" id="brushSizeSlider" class="slider is-danger" min="1" max="50" value="10">
+                <div class="brush-size-preview" id="brushPreview"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="color-picker">
+            <div class="color-row">
+              <label class="label">Select Background Color:</label>
+              <input type="color" id="colorPicker" value="#00FF00" class="input">
+            </div>
+            <div class="slider-row">
+              <span class="tag is-medium is-success">Tolerance: </span>
+              <input type="range" id="toleranceSlider" class="slider is-success" min="0" max="100" value="30">
+              <span id="toleranceValue">30</span>
+            </div>
+          </div>
+          
+          <div class="action-buttons">
+            <button id="removeBackground" class="button is-primary">Remove Background</button>
+            <button id="resetImage" class="button is-warning">Reset</button>
+            <button id="downloadImage" class="button is-info is-hidden">Download Result</button>
+          </div>
+        </div>
+        
+        <div class="preview is-hidden" id="resultContainer">
+          <h3 class="title is-4 has-text-centered">Result</h3>
+          <canvas id="resultCanvas"></canvas>
+        </div>
+        
+        <div class="debug-info" id="debugInfo"></div>
+      </div>
+      
+      <div class="notification is-info">
+        <p><strong>How to Use:</strong></p>
+        <ol>
+          <li>Upload an image by dragging & dropping or clicking "Choose Image"</li>
+          <li>Draw on areas you want to protect from removal using the mask tool</li>
+          <li>Select the background color you want to remove with the color picker</li>
+          <li>Adjust the color tolerance as needed</li>
+          <li>Click "Remove Background" to process the image</li>
+          <li>Download the resulting image with transparent background</li>
+        </ol>
+      </div>
+    </div>
+</section>
+<script src="{{ site.baseurl }}/assets/bg_remove.js"></script>
